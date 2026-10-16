@@ -112,13 +112,21 @@ function sub(t){
 
 /* Code-Gruppen: [label, os, typ, text] */
 var G=[
-{id:"g-start",t:"Vor dem Start prüfen",p:"Diese drei Befehle zeigen, ob alles installiert ist. Jeder gibt eine Versionsnummer aus.",s:[
+{id:"g-start",t:"Vor dem Start prüfen",p:"So installierst du VS Code, Git und Claude Code über das Terminal. Die drei Befehle danach zeigen, ob alles installiert ist, jeder gibt eine Versionsnummer aus.",s:[
+ ["Homebrew installieren, falls nötig","mac","c","/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""],
+ ["VS Code installieren","win","c","winget install -e --id Microsoft.VisualStudioCode"],
+ ["VS Code installieren","mac","c","brew install --cask visual-studio-code"],
+ ["Git installieren","win","c","winget install -e --id Git.Git"],
+ ["Git installieren","mac","c","brew install git"],
+ ["Claude Code installieren","win","c","irm https://claude.ai/install.ps1 | iex"],
+ ["Claude Code installieren","mac","c","curl -fsSL https://claude.ai/install.sh | bash"],
  ["Claude Code","","c","claude --version"],
  ["Git","","c","git --version"],
  ["VS Code","","c","code --version"],
  ["Kursordner anlegen","win","c","mkdir \"$HOME\\Documents\\BTA-Kurs\"\ncd \"$HOME\\Documents\\BTA-Kurs\""],
  ["Kursordner anlegen","mac","c","mkdir -p ~/Documents/BTA-Kurs\ncd ~/Documents/BTA-Kurs"],
- ["Claude Code starten","","c","claude"]]},
+ ["Claude Code starten","","c","claude"]],
+ n:"Unter macOS brauchst du Homebrew. Ist brew unbekannt, installiere es einmalig mit dem Befehl oben. Öffne nach jeder Installation ein neues Terminal-Fenster, erst dann findet das System die neuen Programme."},
 {id:"g-claude",t:"Mit Claude Code arbeiten",p:"Starte Claude Code im Projektordner. Den Modus wechselst du im Terminal mit Umschalt+Tab, im VS-Code-Panel über die Modusauswahl am Eingabefeld. Im Plan-Modus zeigt Claude erst den Plan und ändert nichts, bevor du zustimmst. Bleib im Modus Manuell, so siehst du jeden Befehl, bevor er läuft.",s:[
  ["Gespräch als Datei sichern","","p","Fasse unser Gespräch in einer Markdown-Datei zusammen:\nEntscheidungen, offene Fragen, nächste Schritte."],
  ["Git übernehmen lassen: Stand","","p","Zeige mir mit git status, was sich geändert hat, und erkläre es kurz."],
